@@ -171,13 +171,8 @@ export default class EditEmpProfile extends Component {
   onCalSal = (e) => {
     e.preventDefault();
     let totalSal = 0;
-    const {
-      basicPay,
-      totalLeaves,
-      travelAllowance,
-      medicalAllowance,
-      bonus,
-    } = this.state;
+    const { basicPay, totalLeaves, travelAllowance, medicalAllowance, bonus } =
+      this.state;
 
     totalSal =
       parseInt(basicPay) +
