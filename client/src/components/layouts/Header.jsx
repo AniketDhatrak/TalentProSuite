@@ -113,7 +113,7 @@ class Header extends Component {
                           <li className="nav-item ">
                             <div
                               className="nav-link text-light "
-                              style={{ fontSize: 16 }}
+                              style={{ cursor: "pointer", fontSize: 16 }}
                             >
                               {user.name}
                             </div>

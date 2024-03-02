@@ -37,6 +37,8 @@ export default class EditEmpProfile extends Component {
 
       // loan details
       empLoanHistory: [],
+
+      objective: "",
     };
   }
 
@@ -449,6 +451,7 @@ export default class EditEmpProfile extends Component {
                                   name="skills"
                                   value={this.state.skills}
                                   className="form-control mb-3 "
+                                  onChange={this.onChange}
                                   required
                                 />
                               </div>
