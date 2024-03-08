@@ -42,13 +42,13 @@ class Login extends Component {
           password,
         });
       } catch (e) {
-        loggedInUser = await axios.post(`/api/users/login`, {
-          email,
-          password,
-        });
+        // loggedInUser = await axios.post(`/api/users/login`, {
+        //   email,
+        //   password,
+        // });
       }
 
-      console.log("logged in successfully: ", loggedInUser.data);
+      console.log("logged in successfully: ", await loggedInUser.data);
 
       localStorage.setItem("auth-token", loggedInUser.data.token);
       localStorage.setItem("userId", loggedInUser.data.user._id);

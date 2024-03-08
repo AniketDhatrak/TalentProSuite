@@ -73,21 +73,23 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(req.body);
 
     // validate
     if (!email || !password)
       return res.status(400).json({ msg: "Please enter all the fields" });
 
-    const user = await Admin.findOne({ email: email });
-    if (!user)
+    const user = await Admin.findOne({ email });
+    console.log(user);
+    if (Object.keys(user).length == 0) {
       return res
         .status(400)
         .json({ msg: "No account with this email has been registered" });
+    }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
       return res.status(400).json({ msg: "Invalid username or password" });
+
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     res.json({
       token,
